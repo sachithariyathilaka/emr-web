@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <style>
+      h1
+      {
+        margin-top:50px;
+        margin-bottom:-80px;
+      }
+    </style>
+  </head>
+  <body>
+    <header ng-include="'./components/templates/staff/header.html'"></header>
+    <h1>Patient Search</h1>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;" id="loginDiv">
+      <div class="card-header">
+        <button type="submit" class="doctor" ng-click="IDSearch()">ID Search</button>
+      </div>
+    </div>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;" id="Login" >
+      <div class="card-header">
+        <button type="submit" class="doctor" ng-click="eyeScanSearch()">Eye Scan</button>
+      </div>
+    </div>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;" id="Login" >
+      <div class="card-header">
+        <button type="submit" class="doctor" ng-click="faceIDSearch()">Face ID</button>
+      </div>
+    </div>
+  </body>
+</html>

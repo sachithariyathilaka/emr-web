@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <style>
+      h2{
+        color: #bdc3c7;
+        margin-top: 100px;
+        margin-left: 300px;
+        font-weight: bold;
+      }
+      .userMsg{
+        margin-left: 250px;
+      }
+
+      #registerTemplate
+      {
+        width: 750px;
+        height: auto;
+        margin: 20px auto;
+        border-radius: 10px;
+        padding: 0 50px;
+        padding-bottom: 30px;
+        background-color: transparent;
+        margin-top:50px;
+      }
+      #search
+      {
+        width:250px;
+        float: left;
+        margin-left: 150px;
+      }
+      #doctorSearchBtn
+      {
+        margin-left:50px;
+        height: 35px;
+      }
+      #doc{
+        margin-top: 20px;
+        color: #2c3e50;
+      }
+      h4{
+        color: #bdc3c7;
+        margin-bottom: 50px;
+      }
+      #data
+      {
+        color:  #2c3e50;
+      }
+      .form-control
+      {
+        height: 35px;
+      }
+      #details
+      {
+        font-weight: 700;
+      }
+      h5{
+        color: #2f3640;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header ng-include="'./components/templates/admin/header.html'"></header>
+    <div class="card text-white bg-secondary mb-3" id="registerTemplate" style="margin-top: -40px;" ng-if="medical">
+        <div>
+          <h5><b>Pending Medical Records</b></h5>
+          <hr>
+          <button type="submit" class="btn btn-success" id="doctorSearchBtn" ng-click="accept()" style="margin-left: 5px;">Accept</button>
+          <button type="submit" class="btn btn-danger" id="doctorSearchBtn" ng-click="ignore()" style="margin-left: 5px;">Ignore</button>
+          <div ng-if="medical" id="registerTemplate" class="card text-white bg-secondary mb-3" style="margin-left: -40px; width: 730px; border-width: 2px;">
+            <div class="form-group" id="row1" style="margin-top: 10px;">
+              <label for="exampleInputPassword"><b><span id="details">Prescription ID: </span>{{medical.ID}}</b></label>
+              <label for="exampleInputPassword" style="margin-left: 100px;"><b><span id="details">Date: </span>{{medical.Date}}</b></label>
+              <label for="exampleInputPassword" style="margin-left: 100px;"><b><span id="details">Desease: </span>{{medical.Desease}}</b></label>
+            </div>
+            <div class="form-group" id="row1">
+              <label for="exampleInputPassword"><b><span id="details">Drug 1: </span>{{medical.Drug1}}</b></label>
+              <label for="exampleInputPassword" style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{medical.Quantity1}}</b></label>
+            </div>
+            <div class="form-group" id="row1">
+              <label for="exampleInputPassword"><b><span id="details">Drug 2: </span>{{medical.Drug2}}</b></label>
+              <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{medical.Quantity2}}</b></label>
+            </div>
+            <div class="form-group" id="row1" >
+              <label for="exampleInputPassword"><b><span id="details">Drug 3: </span>{{medical.Drug3}}</b></label>
+              <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{medical.Quantity3}}</b></label>
+            </div>
+            <div class="form-group" id="row1">
+              <label for="exampleInputPassword"><b><span id="details">Drug 4: </span>{{medical.Drug4}}</b></label>
+              <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{medical.Quantity4}}</b></label>
+            </div>
+            <div class="form-group" id="row1">
+              <label for="exampleInputPassword"><b><span id="details">Drug 5: </span>{{medical.Drug5}}</b></label>
+              <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{medical.Quantity5}}</b></label>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

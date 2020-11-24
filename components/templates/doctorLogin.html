@@ -1,0 +1,20 @@
+<div class="card text-white bg-secondary mb-3" id="template">
+  <div class="display-3" id="login">
+    <img src="./components/images/docter.svg" class="img">
+    <h4>Doctor Login</h4>
+  </div>
+  <form id="myform" name="loginForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="text" class="form-control" id="Username" aria-describedby="emailHelp" placeholder="Enter Username" name="Username" ng-model="Username" required>
+    </div>
+    <div ng-show="loginForm.Username.$touched && loginForm.Username.$invalid"></div>
+    <div class="form-group">
+      <label for="exampleInputPassword">Password</label>
+      <input type="password" class="form-control" id="Password" placeholder="Password" name="Password" ng-model="Password" required>
+    </div>
+    <div ng-show="loginForm.Password.$touched && loginForm.Password.$invalid"></div>
+    <span id="message"></span>
+    <button type="submit" class="btn btn-primary" id="loginBtn" ng-disabled="loginForm.$invalid" ng-click="doctorlogin()">Login</button>
+  </form>
+</div>

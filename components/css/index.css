@@ -1,0 +1,45 @@
+body
+{
+  background-color: #2c3e50;
+}
+h1
+{
+  text-align: center;
+  color: #bdc3c7;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+#loginDiv
+{
+  margin: 100px auto;
+
+}
+.docimg
+{
+  width: 30px;
+  height:30px;
+}
+.doctor
+{
+  text-decoration: none;
+  color: white;
+  font-size: 120%;
+  margin-left: 20px;
+  color: #bdc3c7;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.doctor:hover
+{
+  text-decoration: none;
+  color: #2f3640;
+
+}
+#Login
+{
+  margin: 0 auto;
+}
+
+

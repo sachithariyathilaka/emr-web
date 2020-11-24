@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <style>
+        #registerTemplate
+        {
+          width: 750px;
+          height: auto;
+          margin: 50px auto;
+          border-radius: 10px;
+          padding: 0 50px;
+          padding-bottom: 30px;
+        }
+        #doctorRegBtn
+        {
+          margin-top: 30px auto;
+        	padding: 5 150px;
+          width: 250px;
+          margin-left:200px;
+          height: 35px;
+        }
+        #screen
+        {
+          width: 200px;
+          height: 250px;
+        }
+        #screenshot-button
+        {
+          margin-left: -200px;
+
+        }
+        .display{
+          width: 200px;
+          height: 150px;
+          float: right;
+          margin-top: 50px;
+        }
+        h5{
+          color: #2f3640;
+          
+        }
+        #line2
+        {
+          float: right;
+        }
+        #line1
+        {
+          float: left;
+        }
+        #input{
+          width: 300px;
+          height: 35px;
+        }
+        #rightBar{
+          margin-left: 350px;
+        }
+
+    </style>
+  <body>
+    <header ng-include="'./components/templates/staff/header.html'"></header>
+    <div class="card text-white bg-secondary mb-3" id="registerTemplate">
+          <div class="display-3" id="login">
+              <h4><b>Register Patient</b></h4>
+            </div>
+          <h5><b>Upload Photo</b></h5>
+          <hr>
+        <form ng-submit="submit()" name="registerForm" role="form">
+          <img ng-src="{{image_source}}" style="width:250px; height:200px; margin-left:200px;"><br><br>
+          <input ng-model="form.image" type="file" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" style="width:400px;  margin-left:200px;" ><br><br>
+          <h5><b>Personal Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputPassword"><b>Full Name</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Full Name"  ng-model="name" required>
+          </div>
+          <div ng-show="registerForm.name.$touched && registerForm.name.$invalid"></div>
+          <div class="form-group" id="line2">
+            <label for="exampleInputPassword"><b>Age</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Age"  ng-model="age" required>
+          </div>
+          <div ng-show="registerForm.age.$touched && registerForm.age.$invalid"></div>
+          <div class="form-group" id="line1">
+            <label for="exampleInputPassword"><b>Select Blood Group</b></label>
+            <select class="form-control" id="input" ng-model="blodd" required>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+          </div>
+          <div ng-show="registerForm.blodd.$touched && registerForm.blodd.$invalid"></div>
+          <div class="form-group" id="line2">
+            <label for="exampleInputPassword"><b>Select Gender</b></label>
+            <select class="form-control" id="input" ng-model="sex" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div ng-show="registerForm.sex.$touched && registerForm.sex.$invalid"></div>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b>Home Address</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Address" ng-model="address" required>
+          </div>
+          <div ng-show="registerForm.address.$touched && registerForm.address.$invalid"></div>
+          <div class="form-group" id="rightBar">
+            <label for="exampleInputPassword"><b>Mobile Number</b></label>
+            <input type="number" id="input" class="form-control" placeholder="Enter Mobile Number"  ng-model="mobile" required>
+          </div>
+          <div ng-show="registerForm.mobile.$touched && registerForm.mobile.$invalid"></div>
+          <h5><b>Family Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b>Name</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Name" ng-model="FamilyName1">
+          </div>
+          <div ng-show="registerForm.FamilyName1.$touched && registerForm.FamilyName1.$invalid"></div>
+          <div class="form-group" id="line2">
+            <label for="exampleInputPassword"><b>ID (Given ID by Hospital)</b></label>
+            <input type="number" id="input" class="form-control" placeholder="Enter ID"  ng-model="FamilyID1">
+          </div>
+          <div ng-show="registerForm.FamilyID1.$touched && registerForm.FamilyID1.$invalid"></div>
+          <div class="form-group" id="line1">
+              <label for="exampleInputEmail1"><b>Name</b></label>
+              <input type="text" id="input" class="form-control" placeholder="Enter Name" ng-model="FamilyName2">
+          </div>
+          <div ng-show="registerForm.FamilyName2.$touched && registerForm.FamilyName2.$invalid"></div>
+          <div class="form-group" id="rightBar">
+            <label for="exampleInputPassword"><b>ID (Given ID by Hospital)</b></label>
+            <input type="number" id="input" class="form-control" placeholder="Enter ID"  ng-model="FamilyID2">
+          </div>
+          <div ng-show="registerForm.FamilyID2.$touched && registerForm.FamilyID2.$invalid"></div>
+          <h5><b>Emergancy Information (If happen Emergancy Situation)</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b>Name</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Name" ng-model="emergancyName" required>
+          </div>
+          <div ng-show="registerForm.emergancyName.$touched && registerForm.emergancyName.$invalid"></div>
+          <div class="form-group" id="rightBar">
+            <label for="exampleInputPassword"><b>Mobile Number</b></label>
+            <input type="number" id="input" class="form-control" placeholder="Enter Mobile Number"  ng-model="emergancyNumber">
+          </div>
+          <div ng-show="registerForm.emergancyNumber.$touched && registerForm.emergancyNumber.$invalid"></div>
+          <h5><b>Account Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b>Username</b></label>
+            <input type="text" id="input" class="form-control" placeholder="Enter Username" ng-model="PatientUsername" required>
+          </div>
+          <div ng-show="registerForm.PatientUsername.$touched && registerForm.PatientUsername.$invalid"></div>
+          <div class="form-group" id="line2">
+            <label for="exampleInputPassword"><b>Password</b></label>
+            <input type="password" id="input" class="form-control" placeholder="Enter Password"  ng-model="PatientPassword" required>
+          </div>
+          <div ng-show="registerForm.PatientPassword.$touched && registerForm.PatientPassword.$invalid"></div>
+          <button type="submit" class="btn btn-primary" id="doctorRegBtn" ng-disabled="registerForm.$invalid">Register</button>   
+          </form>
+      </div>
+  </body>
+  </head>
+</html>

@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <style>
+        #registerTemplate
+        {
+          width: 750px;
+          height: auto;
+          margin: 20px auto;
+          border-radius: 10px;
+          padding: 0 50px;
+          padding-bottom: 30px;
+          background-color: transparent;
+        }
+        #search
+        {
+          width:250px;
+          float: left;
+          margin-left: 150px;
+        }
+        #doctorSearchBtn
+        {
+          margin-left:50px;
+          height: 35px;
+        }
+        #doc{
+          margin-top: 20px;
+          color: #2c3e50;
+        }
+        h4{
+          color: #bdc3c7;
+          margin-bottom: 50px;
+        }
+        #data
+        {
+          color:  #2c3e50;
+      
+        }
+        .form-control
+        {
+          height: 35px;
+        }
+        #line2
+        {
+          float: right;
+        }
+        #line1
+        {
+          float: left;
+        }
+        h5{
+          color: #2f3640;
+          margin-top: 20px;
+        }
+        label
+        {
+          font-weight: 300;
+        }
+        #details
+        {
+          font-weight: 700;
+        }
+    </style>
+  <body>
+    <header ng-include="'./components/templates/staff/header.html'"></header>
+    <div id="registerTemplate">
+      <form id="myform" name="searchForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Lab Id"  ng-model="labid" id="search" required>
+          <button type="submit" class="btn btn-primary" id="doctorSearchBtn" ng-disabled="searchForm.$invalid" ng-click="searchLab()">Search</button>
+        </div>
+        <div ng-show="searchForm.labid.$touched && searchForm.labid.$invalid"></div>
+      </form>
+    </div>
+    <div class="card text-white bg-secondary mb-3" id="registerTemplate" ng-if="users" style="margin-top: -40px;">
+      <h5><b>Personal Information</b></h5>
+      <hr>
+      <div class="form-group" id="line1" ng-repeat="x in users">
+        <label for="exampleInputPassword"><b><span id="details">Full Name: </span>{{x.Name}}</b></label>
+        <label for="exampleInputPassword" style="float:right; margin-right: 100px;"style="margin-left: 200px;"><b><span id="details">Laboratary Registration Number: </span>{{x.RegNo}}</b></label>
+      </div>  
+      <h5><b>Account Information</b></h5>
+      <hr>
+      <div class="form-group" id="line1" ng-repeat="x in users">
+        <label for="exampleInputEmail1"><b><span id="details">Username: </span>{{x.Username}}</b></label>
+        <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Laboratary ID: </span>{{labid}}</b></label>
+      </div>
+    </div>
+  </body>
+  </head>
+</html>

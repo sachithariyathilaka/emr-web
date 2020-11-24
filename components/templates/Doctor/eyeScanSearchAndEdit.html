@@ -1,0 +1,240 @@
+<html>
+  <head>
+    <style>
+        #registerTemplate
+        {
+          width: 750px;
+          height: auto;
+          margin: 20px auto;
+          border-radius: 10px;
+          padding: 0 50px;
+          padding-bottom: 30px;
+          background-color: transparent;
+        }
+        #search
+        {
+          width:250px;
+          float: left;
+          margin-left: 150px;
+        }
+        #doctorSearchBtn
+        {
+          margin-left:50px;
+          height: 35px;
+        }
+        #doc{
+          margin-top: 20px;
+          color: #2c3e50;
+        }
+        h4{
+          color: #bdc3c7;
+          margin-bottom: 50px;
+        }
+        #data
+        {
+          color:  #2c3e50;
+        }
+        .form-control
+        {
+          height: 35px;
+        }
+        #details
+        {
+          font-weight: 700;
+        }
+        h5{
+          color: #2f3640;
+          margin-top: 20px;
+        }
+        #registerTemplate
+        {
+          width: 750px;
+          height: auto;
+          margin: 20px auto;
+          border-radius: 10px;
+          padding: 0 50px;
+          padding-bottom: 30px;
+          background-color: transparent;
+        }
+        #search
+        {
+          width:250px;
+          float: left;;
+        }
+        #doctorSearchBtn
+        {
+          margin-left:50px;
+        }
+        #doc{
+          margin-top: 20px;
+          color: #2c3e50;
+        }
+        h4{
+          color: #bdc3c7;
+          margin-bottom: 50px;
+        }
+        #data
+        {
+          color:  #2c3e50;
+        }
+        .form-control
+        {
+          height: 35px;
+        }
+        #details
+        {
+          font-weight: 700;
+        }
+        h5{
+          color: #2f3640;
+          margin-top: 20px;
+        }
+        .video-wrap
+        {
+          width:400px;
+          height: 380px;
+          background-color: #ccc;
+          border:10px solid #ddd;
+          margin: auto;
+          margin-bottom: 100px;
+        }
+        #video
+        {
+          width: 380px;
+          height: 380px;
+
+        }
+        #snap{
+          margin: auto;
+        }
+    </style>
+  <body>
+    <div id="registerTemplate">
+      <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+        <input type="button" class="btn btn-primary" id="snap" value="Capture & Upload" ng-click="send()"/>
+        <input type="button" class="btn btn-danger" value="Exit" ng-click="exit()"/><br><br>
+        <canvas id="canvas" width="400" height="380"></canvas>
+      </div>
+    </div>
+    <div class="card text-white bg-secondary mb-3" id="registerTemplate" style="margin-top: -40px;">
+        <div>
+          <h5><b>User Profile</b></h5>
+          <hr>
+          <div>
+            <img ng-src="http://18.216.245.34/EMR/{{users.Image}}" style="width:250px; height:200px; margin-left:200px;">
+          </div><br>
+          <h5><b>Personal Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputPassword"><b><span id="details">Full Name: </span>{{users.Name}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Age: </span>{{users.Age}}</b></label>
+          </div>
+          <div class="form-group" id="line1">
+            <label for="exampleInputPassword"><b><span id="details">Blood Group: </span>{{users.Blood}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Gender: </span>{{users.Gender}}</b></label>
+          </div>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b><span id="details">Address: </span>{{users.Address}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Mobile Number: </span>{{users.Mobile}}</b></label>
+          </div>
+          <h5><b>Family Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b><span id="details">Name: </span>{{users.FamilyName1}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details" >ID (Given ID by Hospital): </span>{{users.FamilyId1}}</b></label>
+          </div>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b><span id="details">Name: </span>{{users.FamilyName2}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details" >ID (Given ID by Hospital): </span>{{users.FamilyId2}}</b></label>
+          </div>
+          <h5><b>Emergancy Information (If happen Emergancy Situation)</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b><span id="details">Name: </span>{{users.EmergancyName}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Mobile Number: </span>{{users.EmergancyMobile}}</b></label>
+          </div>
+          <h5><b>Account Information</b></h5>
+          <hr>
+          <div class="form-group" id="line1">
+            <label for="exampleInputEmail1"><b><span id="details">Username: </span>{{users.Username}}</b></label>
+            <label for="exampleInputPassword" style="float:right; margin-right: 100px;"><b><span id="details">Patient ID: </span>{{users.ID}}</b></label>
+          </div>
+          <div>
+            <h5><b>Medical Records</b></h5>
+            <hr>
+            <button type="submit" class="btn btn-success" id="doctorSearchBtn" ng-click="addPrescription()" style="margin-left: 5px;">Add New Prescription</button>
+            <button type="submit" class="btn btn-success" id="doctorSearchBtn" ng-click="updatePrescription()" style="margin-left: 5px;">Update Prescription</button>
+            <div ng-repeat="y in medical"  ng-if="medical" id="registerTemplate" class="card text-white bg-secondary mb-3" style="margin-left: -40px; width: 730px; border-width: 2px;">
+              <div class="form-group" id="row1" style="margin-top: 10px;">
+                <label for="exampleInputPassword"><b><span id="details">Prescription ID: </span>{{y.prescriptionID}}</b></label>
+                <label for="exampleInputPassword" style="margin-left: 100px;"><b><span id="details">Date: </span>{{y.Date}}</b></label>
+                <label for="exampleInputPassword" style="margin-left: 100px;"><b><span id="details">Desease: </span>{{y.Desease}}</b></label>
+              </div>
+              <div class="form-group" id="row1">
+                <label for="exampleInputPassword"><b><span id="details">Drug 1: </span>{{y.drug1}}</b></label>
+                <label for="exampleInputPassword" style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{y.quantity1}}</b></label>
+              </div>
+              <div class="form-group" id="row1">
+                <label for="exampleInputPassword"><b><span id="details">Drug 2: </span>{{y.drug2}}</b></label>
+                <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{y.quantity2}}</b></label>
+              </div>
+              <div class="form-group" id="row1" >
+                <label for="exampleInputPassword"><b><span id="details">Drug 3: </span>{{y.drug3}}</b></label>
+                <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{y.quantity3}}</b></label>
+              </div>
+              <div class="form-group" id="row1">
+                <label for="exampleInputPassword"><b><span id="details">Drug 4: </span>{{y.drug4}}</b></label>
+                <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{y.quantity4}}</b></label>
+              </div>
+              <div class="form-group" id="row1">
+                <label for="exampleInputPassword"><b><span id="details">Drug 5: </span>{{y.drug5}}</b></label>
+                <label for="exampleInputPassword"  style="margin-right: 300px; float: right;"><b><span id="details">Quantity: </span>{{y.quantity5}}</b></label>
+              </div>
+            </div>
+          </div>
+          <div ng-if="reports">
+            <h5><b>Medical Reports</b></h5>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <script>
+      'use strict';
+
+      const video = document.getElementById('video');
+      const canvas = document.getElementById('canvas');
+      const snap = document.getElementById("snap");
+      const errorMsgElement = document.querySelector('span#errorMsg');
+
+      const constraints = {
+        audio: false,
+        video: true
+      };
+
+      async function init() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia(constraints);
+          handleSuccess(stream);
+        } catch (e) {
+          errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+        }
+      }
+
+      function handleSuccess(stream) {
+        window.stream = stream;
+        video.srcObject = stream;
+      }
+
+      init();
+
+      // Draw image
+      var context = canvas.getContext('2d');
+      snap.addEventListener("click", function() {
+         context.drawImage(video, 0, 0, 400, 380);
+         var dataURL = canvas.toDataURL();
+       });
+    </script>
+  </body>
+  </head>
+</html>

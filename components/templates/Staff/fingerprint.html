@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style>
+      #registerTemplate
+      {
+        width: 750px;
+        height: auto;
+        margin: 20px auto;
+        border-radius: 10px;
+        padding: 0 50px;
+        padding-bottom: 30px;
+        background-color: transparent;
+      }
+      #search
+      {
+        width:250px;
+        float: left;
+        margin-left: 150px;
+      }
+      #doctorSearchBtn
+      {
+        margin-left:50px;
+        height: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="registerTemplate">
+      <form id="myform" name="searchForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Patient Id"  ng-model="patientID" id="search" required/><br><br>
+          <input type="text" class="form-control" placeholder="Enter Com Port"  ng-model="port" id="search" required>
+          <button type="submit" class="btn btn-primary" id="doctorSearchBtn" ng-disabled="searchForm.$invalid" ng-click="regFinger()">Register</button>
+        </div>
+        <div ng-show="searchForm.Id.$touched && searchForm.Id.$invalid"></div>
+      </form>
+    </div>
+    <div>
+      {{output}}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <style>
+      #dropdownMenu
+      {
+        background-color:#bdc3c7;
+      }
+      .dropdown-item
+      {
+        color:white;
+      }
+      button
+      {
+        background-color: transparent;
+        outline: none;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">EMR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <button type="button" class="nav-link" ng-click="home()">Home<span class="sr-only">(current)</span></button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link" ng-click="fingerprint()">Register Fingerprint<span class="sr-only">(current)</span></button>
+            </li>
+            <div class="dropdown show">
+              <button class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Register
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
+                <button class="dropdown-item" ng-click="registerDoctor()">Doctor</button>
+                <button class="dropdown-item" ng-click="registerPatient()">Patient</button>
+                <button class="dropdown-item" ng-click="registerPharmacy()">Phamacy</button>
+                <button class="dropdown-item" ng-click="registerLab()">Laboratary</button>
+              </div>
+            </div>
+            <div class="dropdown show">
+              <button class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenu">
+                <button class="dropdown-item" ng-click="searchDoctor()">Doctor</button>
+                <button class="dropdown-item" ng-click="patientSearch()">Patient</button>
+                <button class="dropdown-item" ng-click="searchPharmacy()">Phamacy</button>
+                <button class="dropdown-item" ng-click="searchLab()">Laboratary</button>
+              </div>
+            </div>
+            <li class="nav-item">
+              <button type="button" class="nav-link" ng-click="staffChangePass()">Change Password</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link" ng-click="staffOut()">Log Out</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </body>
+  </html>

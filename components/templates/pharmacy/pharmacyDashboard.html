@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <style>
+    h1
+    {
+    text-align: center;
+    color: #bdc3c7;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    }
+    #registerTemplate
+    {
+    width: 750px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 0 50px;
+    padding-bottom: 30px;
+    background-color: transparent;
+    margin-left:300px;
+    }
+    #search
+    {
+    width:250px;
+    float: left;
+    margin-left: 150px;
+    }
+    #doctorSearchBtn
+    {
+    margin-left:50px;
+    height: 35px;
+    }
+    #doc{
+    margin-top: 20px;
+    color: #2c3e50;
+    }
+    h4{
+    color: #bdc3c7;
+    margin-bottom: 50px;
+    }
+    #data
+    {
+    color:  #2c3e50;
+    }
+    .form-control
+    {
+    height: 35px;
+    }
+    #details
+    {
+    font-weight: 700;
+    }
+    h5{
+    color: #2f3640;
+    margin-top: 20px;
+    }
+    button
+      {
+        background-color: transparent;
+        outline: none;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Welcome {{user}}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <button type="button" class="nav-link" ng-click="logOut()">Log Out<span class="sr-only">(current)</span></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="registerTemplate">
+      <form id="myform" name="searchForm" ng-submit="submit()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Patient Id"  ng-model="patientID" id="search" required>
+          <button type="submit" class="btn btn-primary" id="doctorSearchBtn" ng-disabled="searchForm.$invalid">Search</button>
+        </div>
+        <div ng-show="searchForm.Id.$touched && searchForm.Id.$invalid"></div>
+      </form>
+    </div>
+    <div ng-if="prescription" id="registerTemplate" class="card text-white bg-secondary mb-3" style="margin-top:20px; width: 730px; border-width: 2px;">
+      <input type="button" class="btn btn-primary" value="QR Generator Console" ng-click="qrcode()">
+        <h5><b>Medical Prescription</b></h5>
+        <hr>
+        <div style="margin-bottom: 20px;">
+          <div class="form-group" id="row1" style="margin-top: 10px;" ng-repeat="x in prescription">
+            <label for="exampleInputPassword"><b><span id="details">Prescription ID: </span>{{x.ID}}</b></label>
+            <hr>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

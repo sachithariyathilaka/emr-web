@@ -1,0 +1,143 @@
+<html>
+  <head>
+    <style>
+      #registerTemplate
+      {
+      width: 750px;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 10px;
+      padding: 0 50px;
+      padding-bottom: 30px;
+      background-color: transparent;
+      }
+      #search
+      {
+      width:250px;
+      float: left;
+      margin-left: 300px;
+      }
+      #doctorSearchBtn
+      {
+      margin-left:50px;
+      height: 35px;
+      width: 100px;
+      }
+      #doc{
+      margin-top: 20px;
+      color: #2c3e50;
+      }
+      h4{
+      color: #bdc3c7;
+      margin-bottom: 50px;
+      }
+      #data
+      {
+      color:  #2c3e50;
+      }
+      .form-control
+      {
+      height: 35px;
+      }
+      #details
+      {
+      font-weight: 700;
+      }
+      h5{
+      color: #2f3640;
+      margin-top: 20px;
+      }
+      #row1{
+      margin-left:220px;
+      }
+      .form-control
+      {
+      width: 300px;
+      height: 35px;
+      }
+      #line1
+      {
+      float: left;
+          
+      }
+      #line2
+      {
+      margin-left: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card text-white bg-secondary mb-3" id="registerTemplate">
+      <h5><b>Add Prescription</b></h5>
+      <hr>
+      <form id="myform" name="registerForm">
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Patient ID</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Patient Id"  ng-model="id" required>
+        </div>
+        <div ng-show="registerForm.desease.$touched && registerForm.desease.$invalid"></div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Disease</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Desease"  ng-model="desease" required>
+        </div>
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Drug 1</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Drug 1"  ng-model="drug1">
+        </div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Quantity</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Quantity"  ng-model="quantity1">
+        </div>
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Drug 2</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Drug 2"  ng-model="drug2">
+        </div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Quantity</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Quantity"  ng-model="quantity2">
+        </div>
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Drug 3</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Drug 3"  ng-model="drug3">
+        </div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Quantity</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Quantity"  ng-model="quantity3">
+        </div>      
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Drug 4</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Drug 4"  ng-model="drug4">
+        </div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Quantity</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Quantity"  ng-model="quantity4">
+        </div> 
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Drug 5</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Drug 5"  ng-model="drug5">
+        </div>
+        <div class="form-group" id="line2">
+          <label for="exampleInputPassword"><b><span id="details">Quantity</span></b></label>
+          <input type="text" class="form-control" id="input" placeholder="Enter Quantity"  ng-model="quantity5">
+        </div>
+        <div>
+        <h5><b>Add Medical Reports</b></h5>
+        <hr>
+        <div class="form-group" id="line1">
+          <label for="exampleInputPassword"><b><span id="details">Select Report</span></b></label>
+          <select class="form-control" id="input" ng-model="report">
+            <option value="FBC">FBC</option>
+            <option value="Urine Test">Urine Test</option>
+            <option value="ECG">ECG</option>
+            <option value="MRI">MRI</option>
+            <option value="Full Body Scan">Full Body Scan</option>
+            <option value="None">None</option>
+          </select>
+        </div>
+      </div> <br><br><br><br>
+      <button type="submit" class="btn btn-primary" id="doctorRegBtn" ng-disabled="registerForm.$invalid" ng-click="submit()">Submit</button>
+      <button type="submit" class="btn btn-danger" id="doctorRegBtn" ng-click="exit()">Exit</button>
+      </form>
+   </div>
+  </body>
+</html>

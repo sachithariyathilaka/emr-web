@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <style>
+        #registerTemplate
+        {
+          width: 750px;
+          height: auto;
+          margin: 20px auto;
+          border-radius: 10px;
+          padding: 0 50px;
+          padding-bottom: 30px;
+          background-color: transparent;
+        }
+        #search
+        {
+          width:250px;
+          float: left;;
+        }
+        #doctorSearchBtn
+        {
+          margin-left:50px;
+        }
+        #doc{
+          margin-top: 20px;
+          color: #2c3e50;
+        }
+        h4{
+          color: #bdc3c7;
+          margin-bottom: 50px;
+        }
+        #data
+        {
+          color:  #2c3e50;
+        }
+        .form-control
+        {
+          height: 35px;
+        }
+        #details
+        {
+          font-weight: 700;
+        }
+        h5{
+          color: #2f3640;
+          margin-top: 20px;
+        }
+        .video-wrap
+        {
+          width:400px;
+          height: 380px;
+          background-color: #ccc;
+          border:10px solid #ddd;
+          margin: auto;
+        }
+        #video
+        {
+          width: 380px;
+          height: 380px;
+
+        }
+        #snap{
+          margin: auto;
+        }
+    </style>
+    </head>
+  <body>
+    <div id="registerTemplate">
+      <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+        <input type="button" class="btn btn-primary" id="snap" value="Capture & Upload"/>
+        <input type="button" class="btn btn-danger" value="Exit" ng-click="exit()"/><br><br>
+        <canvas id="canvas" width="400" height="380"></canvas>
+      </div>
+    </div>
+    <script>
+    'use strict';
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const snap = document.getElementById("snap");
+    const errorMsgElement = document.querySelector('span#errorMsg');
+
+    const constraints = {
+      audio: false,
+      video: true
+    };
+
+    async function init() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        handleSuccess(stream);
+      } catch (e) {
+        errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+      }
+    }
+
+    function handleSuccess(stream) {
+      window.stream = stream;
+      video.srcObject = stream;
+    }
+
+    init();
+
+    // Draw image
+    var context = canvas.getContext('2d');
+    snap.addEventListener("click", function() {
+       context.drawImage(video, 0, 0, 400, 380);
+
+       var dataURL = canvas.toDataURL();
+       $.ajax({
+         type: "POST",
+         url: "http://18.216.245.34/EMR/php/uploadEyeScan.php",
+         data: {
+           imgBase64: dataURL
+         }
+       }).done(function(o) {
+         console.log('saved');
+         window.alert('Image Uploaded!');
+  });
+
+     });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style>
+      #registerTemplate
+      {
+      width: 750px;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 10px;
+      padding: 0 50px;
+      padding-bottom: 30px;
+      background-color: transparent;
+      margin-left:300px;
+      }
+      #search
+      {
+      width:250px;
+      float: left;
+      margin-left: 150px;
+      }
+      #doctorSearchBtn
+      {
+      margin-left:50px;
+      height: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="registerTemplate">
+      <form id="myform" name="searchForm" ng-submit="submit()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Prescription Id"  ng-model="ID" id="search" required>
+          <button type="submit" class="btn btn-primary" id="doctorSearchBtn" ng-disabled="searchForm.$invalid">Search</button>
+        </div>
+        <div ng-show="searchForm.Id.$touched && searchForm.Id.$invalid"></div>
+      </form>
+    </div>
+    <center><img ng-src="{{qrcode}}"/></center><br>
+    <center><textarea style="background:transparent;"></textarea>
+  </body>
+</html>
