@@ -1,4 +1,4 @@
-# EMR
+# Electronic Medical Record Web
 Electronic medical records is a web based hospital management system 
 
 * ### Technologies
