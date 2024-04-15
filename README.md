@@ -1,4 +1,4 @@
-# Electronic Medical Record Web
+# EMR Web
 Electronic medical records is a web based hospital management system 
 
 * ### Technologies
@@ -11,6 +11,6 @@ Electronic medical records is a web based hospital management system
 * ### Release Note
   * Release: 1.0.0
   * Date: 2023/06/03
-  * Module: Electronic Medical Record Web
+  * Module: EMR Web
   * Changes
     * Implements the hospital management system related backend and frontend functionalities.
